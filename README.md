@@ -1,4 +1,4 @@
 onedb-web
 =========
 
-onedb webpage
+Web presence for the [onedb database](http://ononedb.com).
