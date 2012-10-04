@@ -1,5 +1,305 @@
 <!-- one.upload https://u1.linnk.it/qc8sbw/usr/apps/textsync/docs/onedb-main -->
+<!DOCTYPE html>
+
+<html itemscope itemtype="http://schema.org/Product">
+
+<head>
 
 
+<meta itemprop="name" content="onedb: Connect Small Data in the Cloud">
+<meta itemprop="description"
+	content="onedb connects small data in the cloud.">
+<meta itemprop="image"
+	content="http://www.onedb.de/assets/v01/img/onedblogov1.png">
+
+<meta property="og:title" content="onedb" />
+<meta property="og:type" content="product" />
+<meta property="og:url" content="http://ononedb.com/" />
+<meta property="og:image"
+	content="http://www.onedb.de/assets/v01/img/onedblogov1.png" />
+<meta property="og:site_name"
+	content="onedb: Connect Small Data in the Cloud" />
+<meta property="fb:admins" content="1404932690" />
+
+<title>onedb: Connect Small Data in the Cloud</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description"
+	content="onedb is a lightweight cloud database for small, distributed and
+			evolving data.">
+<meta name="author" content="Max Rohde">
+
+
+<link href="/assets/v01/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+<link href="/assets/v01/OneWww.css" rel="stylesheet">
+
+<link href="http://google-code-prettify.googlecode.com/svn-history/r58/trunk/src/prettify.css" rel="stylesheet" >
+
+<style>
+body {
+	padding-top: 60px;
+	/* 60px to make the container go all the way to the bottom of the topbar */
+}
+</style>
+
+<script src="/assets/v01/bootstrap/js/bootstrap.min.js"></script>
+
+<script language="JavaScript">
+</script>
+
+</head>
+<body onload="prettyPrint()">
+	<script type="text/javascript" language="javascript" src="http://google-code-prettify.googlecode.com/svn-history/r58/trunk/src/prettify.js"></script>
+	
+	
+	<!-- GWT History Support -->
+	<iframe src="javascript:''" id="__gwt_historyFrame" tabIndex='-1'
+		style="position: absolute; width: 0; height: 0; border: 0"></iframe>
+
+	<div class="container">
+
+		<img src="http://u1.linnk.it/xxzv0z/imgTst/odblogo.value.png" alt="onedb" />
+
+
+		<!-- <p class="headline">small data is beautiful.</p> -->
+
+		<p class="firstparagraph largefont">
+			onedb is a scalable, distributed, cloud-based engine for evolveable databases. 
+			onedb is the database engine used for the <a href="http://appjangle.com">appjangle</a> platform.
+		</p>
+
+		<p class="paragraph largefont">Compose interconnected data using a powerful Java API:</p>
+		<table class="table">
+
+			<tr>
+				<td>
+<p style="font-size:100%"><a href="https://github.com/mxro/onedb-examples/blob/master/src/main/java/one/examples/a_intro/D_HelloWorld.java">HelloWorld.java</a>:</p>
+<pre class="prettyprint lang-java" style="font-size:95%">
+// initializes onedb engine 
+OneJre.init("[Your API key here]");
+
+// creates a new cloud database 'hello'
+One.createRealm("hello").and(new WhenRealmCreated() {
+
+    @Override
+    public void thenDo(WithRealmCreatedResult r) {
+        OneNode dbRoot = r.root();
+        OneClient client = r.client();
+
+        // append hello world in English 
+        String engHello = "Hello, world!";
+        One.append(engHello).to(dbRoot).in(client);
+        One.append("is English")
+                    .to(engHello).in(client);
+
+        // append hello world in German
+        String gerHello = "Hallo, Welt!";
+        One.append(gerHello).to(dbRoot).in(client);
+        One.append("is German")
+                    .to(gerHello).in(client);
+
+        // shutdown client ...
+    }
+});
+</pre>
+<p style="font-size:100%">Running this application will create a cloud database such as the following:</p>
+<pre style="font-size:100%">   <a href="https://u1.linnk.it/bdw9pt/hello">https://u1.linnk.it/bdw9pt/hello</a></pre>
+<!-- <p style="font-size:100%"><a href="https://github.com/mxro/onedb-examples/blob/master/src/main/java/one/examples/a_intro/D_HelloWorld.java">See annotated source on github.</a></p>-->
+<p style="font-size:100%">For more details check the <a href="http://maxrohde.com/2012/05/06/onedb-tutorial/">step-by-step tutorial</a>.</p>
+</td>
+			</tr>
+		
+		</table>
+
+		<!-- <div style="margin-top: 40px;">
+
+
+			<form class="well">
+				<label id="apikeyanchor" class="getapikey">Get a onedb API
+					key in less than 5 seconds. Your key will appear below and
+					 be sent to the email address you specify.<br/>
+					 <br/>
+					 The <a href="http://cms.onedb.de/whyisitfree">free</a> API key allows to store up to 10,000 nodes/objects
+					 in the onedb cloud.</label>
+
+				<div class="input-prepend" style="margin-top: 20px; height: 35px;">
+					<span class="add-on" style="height: 25px;">@</span><input type="text"
+						id="onewwwuseremail" size="16" class="span2 getapikey"
+						style="height: 35px; width: 483px; position: relative; top: 5px; left: 0px;"
+						placeholder="Email address">
+				</div>
+
+				<label class="checkbox getapikey" style="margin-top: 30px;">
+					<input type="checkbox" id="onewwwtermsaccepted"> Check to
+					confirm you accept the <a
+					href="http://cms.onedb.de/terms-and-conditions">terms
+						& conditions</a>.
+				</label>
+
+				<button type="button" disabled id="onewwwrequestbutton"
+					class="btn getapikey"
+					style="margin-top: 20px; width: 510px; text-align: center;">Request
+					Key</button>
+			</form>
+		</div>
+
+		<div style="display: none" id="onewwwapikeysuccess">
+			<form class="well">
+				<label class="getapikey"> <i class="icon-ok"></i> Your key
+					has been generated successfully.
+				</label> <input type="text" id="onewwwapikeyresult" class="span3 getapikey"
+					style="height: 35px; width: 510px; margin-top: 5px;"
+					placeholder="Api key not yet generated ..."> <label
+					class="getapikey" style="margin-top: 5px;">Your key has
+					also been sent to you by email. Check the <a
+					href="http://cms.onedb.de/articles">docs</a> to get started with
+					onedb.
+				</label>
+				
+			</form>
+		</div>
+
+		<div style="display: none" id="onewwwapikeyerror">
+			<form class="well">
+				<label class="getapikey"> <i class="icon-exclamation-sign"></i>
+					An error occurred while requesting your API key.
+				</label>
+				<div id="onewwwerrormessage" class="getapikey">No error
+					message.</div>
+			</form>
+		</div> -->
+
+		<p class="paragraph largefont">Please share:</p>
+		<table class="table">
+
+			<tr>
+				<td><a href="https://twitter.com/share"
+					class="twitter-share-button"
+					data-text="Check out onedb: Connect Small Data in the Cloud"
+					data-via="mxro" data-count="none" data-related="mxro">Tweet</a> <script>
+						!function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (!d.getElementById(id)) {
+								js = d.createElement(s);
+								js.id = id;
+								js.src = "//platform.twitter.com/widgets.js";
+								fjs.parentNode.insertBefore(js, fjs);
+							}
+						}(document, "script", "twitter-wjs");
+					</script></td>
+				<td>
+					<!-- Place this tag where you want the +1 button to render --> <g:plusone
+						size="tall" annotation="none"></g:plusone> <!-- Place this render call where appropriate -->
+					<script type="text/javascript">
+						(function() {
+							var po = document.createElement('script');
+							po.type = 'text/javascript';
+							po.async = true;
+							po.src = 'https://apis.google.com/js/plusone.js';
+							var s = document.getElementsByTagName('script')[0];
+							s.parentNode.insertBefore(po, s);
+						})();
+					</script>
+				</td>
+				<td><script src="//platform.linkedin.com/in.js"
+						type="text/javascript"></script> <script type="IN/Share"
+						data-url="http://www.onedb.de/"></script></td>
+				<td>
+					<div id="fb-root"></div> <script>
+						(function(d, s, id) {
+							var js, fjs = d.getElementsByTagName(s)[0];
+							if (d.getElementById(id))
+								return;
+							js = d.createElement(s);
+							js.id = id;
+							js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+							fjs.parentNode.insertBefore(js, fjs);
+						}(document, 'script', 'facebook-jssdk'));
+					</script>
+					<div class="fb-like" data-href="http://www.onedb.de/"
+						data-send="false" data-layout="button_count" data-width="30"
+						data-show-faces="false"></div>
+				</td>
+			</tr>
+
+
+		</table>
+
+		<p class="paragraph largefont">Featured Downloads:</p>
+		<table class="table">
+
+			<tr>
+				<td>onedb Java Client</td>
+				<td>0.0.5</td>
+				<td><a
+					href="http://dl.dropbox.com/u/957046/onedb/mvn-releases/one/client/jre/oneClientJre.min/0.0.5/oneClientJre.min-0.0.5.jar">download</a></td>
+				<td><a href="http://cms.onedb.de/downloads#jcl">maven</a></td>
+			</tr>
+			<tr>
+				<td>onedb Java Test Toolkit</td>
+				<td>0.0.5</td>
+				<td><a
+					href="http://dl.dropbox.com/u/957046/onedb/mvn-releases/one/test/jre/oneTestJre.min/0.0.5/oneTestJre.min-0.0.5.jar">download</a></td>
+				<td><a href="http://cms.onedb.de/downloads#jtt">maven</a></td>
+			</tr>
+
+		</table>
+		<p class="normalfont">
+			[ <a href="http://cms.onedb.de/downloads">More Downloads</a> ]
+		</p>
+
+		<p class="paragraph largefont">Check out any of the following
+			articles to learn more about onedb:</p>
+		<table class="table">
+
+			<tr>
+				<td><a href="http://maxrohde.com/2012/05/05/small-data/">Small
+						data is beautiful: A Case for Connected Applications</a></td>
+			</tr>
+			<tr>
+				<td><a href="http://maxrohde.com/2012/05/06/introducing-onedb/">Introducing
+						onedb: Connect Small Data in the Cloud</a></td>
+
+			</tr>
+
+			<tr>
+				<td><a href="http://maxrohde.com/2012/05/06/onedb-tutorial/">onedb
+						Tutorial: Getting Started and First Steps</a></td>
+			</tr>
+
+			<tr>
+				<td><a href="http://cms.onedb.de/articles">more articles</a></td>
+			</tr> 
+		</table>
+	</div>
+
+
+
+	<div class="footer">
+		(c) <a href="http://www.mxro.de/">Max Rohde</a> 2012<br /> Picture
+		credits: <a
+			href="http://www.flickr.com/photos/wwwpgflickrcom/1743918097/">Canary</a>
+		by <a href="http://www.flickr.com/photos/wwwpgflickrcom/">Peter
+			Grima</a>.
+	</div>
+
+
+	
+	<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-30971163-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+</body>
+</html>
 
 <!-- one.end -->
